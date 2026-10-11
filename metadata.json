@@ -1,0 +1,6 @@
+{
+  "name": "Unity Car Driving Simulator Lab Companion",
+  "description": "Unity 3D Car Driving Simulator lab guide, C# modular architecture, interactive 3D physics sandbox, and driver behaviour assessment system.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
