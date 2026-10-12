@@ -1,7 +1,17 @@
 export interface UnityStep {
   stepNumber: number;
   title: string;
-  category: 'Setup' | 'Environment' | 'Vehicle' | 'Camera' | 'UI' | 'Management' | 'Testing' | 'Audio' | 'Visuals' | 'Reporting';
+  category:
+    | "Setup"
+    | "Environment"
+    | "Vehicle"
+    | "Camera"
+    | "UI"
+    | "Management"
+    | "Testing"
+    | "Audio"
+    | "Visuals"
+    | "Reporting";
   whatToCreate: string;
   whereToCreate: string;
   gameObjectsRequired: string[];
@@ -40,7 +50,7 @@ export interface CSharpScript {
 export interface VehicleTelemetry {
   speedKmh: number;
   engineRpm: number;
-  currentGear: 'P' | 'R' | 'N' | 'D';
+  currentGear: "P" | "R" | "N" | "D";
   steerAngle: number;
   motorTorque: number;
   brakeTorque: number;
@@ -51,7 +61,7 @@ export interface VehicleTelemetry {
 export interface ProjectPhase {
   phaseNumber: number;
   name: string;
-  status: 'Completed' | 'Ready for Implementation' | 'Planned';
+  status: "Completed" | "Ready for Implementation" | "Planned";
   deliverables: string[];
   keyComponents: string[];
   description: string;
@@ -73,8 +83,10 @@ export interface DrivingSessionData {
   hardBrakingEvents: number;
   missedCheckpoints: number;
   finalScore: number;
-  classification: 'Excellent' | 'Good' | 'Needs Improvement' | 'Unsafe Driving';
+  classification: "Excellent" | "Good" | "Needs Improvement" | "Unsafe Driving";
   feedbackNotes: string[];
+  distanceMeters?: number;
+  routeCompleted?: boolean;
 }
 
 export interface TelemetrySample {
@@ -94,7 +106,7 @@ export interface TelemetrySample {
 
 export interface ExplainableAssessmentReport {
   score: number;
-  classification: 'Excellent' | 'Good' | 'Needs Improvement' | 'Unsafe Driving';
+  classification: "Excellent" | "Good" | "Needs Improvement" | "Unsafe Driving";
   summaryParagraph: string;
   positiveBehaviors: string[];
   mistakes: string[];
@@ -117,7 +129,11 @@ export interface ExplainableAssessmentReport {
 export interface DriverProfile {
   id: string;
   name: string;
-  licenseType: 'Student Permit' | 'Provisional License' | 'Class C Driver' | 'Professional Instructor';
+  licenseType:
+    | "Student Permit"
+    | "Provisional License"
+    | "Class C Driver"
+    | "Professional Instructor";
   badge: string;
   createdDate: string;
   totalSessions: number;
@@ -125,11 +141,16 @@ export interface DriverProfile {
   totalDriveTimeMinutes: number;
   averageScore: number;
   bestScore: number;
-  safetyTier: 'Excellent' | 'Good' | 'Needs Improvement' | 'Unsafe Driving';
+  safetyTier: "Excellent" | "Good" | "Needs Improvement" | "Unsafe Driving";
 }
 
 export interface DriverProgressStats {
-  scoreHistory: { date: string; score: number; scenario: string; sessionNumber: number }[];
+  scoreHistory: {
+    date: string;
+    score: number;
+    scenario: string;
+    sessionNumber: number;
+  }[];
   violationAggregates: {
     totalCollisions: number;
     totalRedLights: number;
@@ -137,6 +158,8 @@ export interface DriverProgressStats {
     totalLaneViolations: number;
     totalHardBrakes: number;
   };
-  scenarioPassRates: Record<string, { totalDrives: number; avgScore: number; passRate: number }>;
+  scenarioPassRates: Record<
+    string,
+    { totalDrives: number; avgScore: number; passRate: number }
+  >;
 }
-

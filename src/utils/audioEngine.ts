@@ -124,7 +124,7 @@ export class ProceduralVehicleAudio {
     this.engineGain?.gain.setTargetAtTime(engineVol, t, 0.08);
 
     // Tire Squeal Modulation
-    const targetSquealVol = (isSkidding || (isBraking && speedKmh > 20)) ? 0.35 : 0.0001;
+    const targetSquealVol = isSkidding ? 0.25 : 0.0001;
     this.squealGain?.gain.setTargetAtTime(targetSquealVol, t, 0.06);
   }
 

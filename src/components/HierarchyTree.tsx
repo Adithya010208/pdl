@@ -378,13 +378,13 @@ export const HierarchyTree: React.FC = () => {
           onClick={() => setSelectedNodeId(node.id)}
           style={{ paddingLeft: `${depth * 14 + 8}px` }}
           className={`flex items-center gap-1.5 py-1.5 pr-3 rounded cursor-pointer text-xs transition-colors ${
-            isSelected ? 'bg-blue-600 text-white font-medium' : 'text-slate-300 hover:bg-slate-800/60'
+            isSelected ? 'bg-teal-600 text-stone-900 font-medium' : 'text-stone-700 hover:bg-stone-200/60'
           }`}
         >
           {hasChildren ? (
             <button
               onClick={e => toggleExpand(node.id, e)}
-              className="p-0.5 hover:bg-slate-700/60 rounded text-slate-400 hover:text-white"
+              className="p-0.5 hover:bg-stone-300/60 rounded text-stone-600 hover:text-stone-900"
             >
               {isExpanded ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronRight className="w-3.5 h-3.5" />}
             </button>
@@ -392,7 +392,7 @@ export const HierarchyTree: React.FC = () => {
             <span className="w-4.5" />
           )}
 
-          <Box className={`w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-slate-400'}`} />
+          <Box className={`w-3.5 h-3.5 ${isSelected ? 'text-stone-900' : 'text-stone-600'}`} />
           <span className="truncate">{node.name}</span>
         </div>
 
@@ -406,13 +406,13 @@ export const HierarchyTree: React.FC = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
       {/* Left: Unity Hierarchy Window */}
-      <div className="lg:col-span-5 bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl space-y-3">
-        <div className="flex items-center justify-between pb-2 border-b border-slate-800">
+      <div className="lg:col-span-5 bg-white border border-stone-200 rounded-2xl p-4 shadow-xl space-y-3">
+        <div className="flex items-center justify-between pb-2 border-b border-stone-200">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Unity Hierarchy</span>
-            <span className="text-[10px] text-slate-500 font-mono">(DrivingScene.unity)</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-stone-700">Unity Hierarchy</span>
+            <span className="text-[10px] text-stone-500 font-mono">(DrivingScene.unity)</span>
           </div>
-          <span className="text-[11px] text-sky-400 font-mono">14 Objects</span>
+          <span className="text-[11px] text-teal-700 font-mono">14 Objects</span>
         </div>
 
         <div className="py-1 space-y-0.5 max-h-[520px] overflow-y-auto font-mono">
@@ -421,36 +421,36 @@ export const HierarchyTree: React.FC = () => {
       </div>
 
       {/* Right: Unity Inspector Window */}
-      <div className="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
-        <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+      <div className="lg:col-span-7 bg-white border border-stone-200 rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="flex items-center justify-between pb-3 border-b border-stone-200">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-300">Unity Inspector</span>
-            <span className="text-slate-500 text-xs">·</span>
-            <span className="text-xs font-mono text-sky-400 font-semibold">{selectedNode.name}</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-stone-700">Unity Inspector</span>
+            <span className="text-stone-500 text-xs">·</span>
+            <span className="text-xs font-mono text-teal-700 font-semibold">{selectedNode.name}</span>
           </div>
-          <span className="px-2 py-0.5 bg-slate-800 rounded text-[10px] font-mono text-slate-400">Static: False</span>
+          <span className="px-2 py-0.5 bg-stone-200 rounded text-[10px] font-mono text-stone-600">Static: False</span>
         </div>
 
         {/* Transform Component */}
-        <div className="p-4 bg-slate-950/80 rounded-xl border border-slate-800/80 space-y-2">
-          <div className="flex items-center justify-between text-xs font-bold text-slate-200">
+        <div className="p-4 bg-stone-100/80 rounded-xl border border-stone-200/80 space-y-2">
+          <div className="flex items-center justify-between text-xs font-bold text-stone-800">
             <div className="flex items-center gap-2">
-              <Compass className="w-3.5 h-3.5 text-sky-400" />
+              <Compass className="w-3.5 h-3.5 text-teal-700" />
               <span>Transform</span>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px] font-mono pt-1 text-slate-400">
-            <div className="bg-slate-900/90 p-2 rounded border border-slate-800">
-              <span className="text-slate-500 block text-[10px]">Position</span>
-              <span className="text-slate-200">{selectedNode.transform.position}</span>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px] font-mono pt-1 text-stone-600">
+            <div className="bg-white/90 p-2 rounded border border-stone-200">
+              <span className="text-stone-500 block text-[10px]">Position</span>
+              <span className="text-stone-800">{selectedNode.transform.position}</span>
             </div>
-            <div className="bg-slate-900/90 p-2 rounded border border-slate-800">
-              <span className="text-slate-500 block text-[10px]">Rotation</span>
-              <span className="text-slate-200">{selectedNode.transform.rotation}</span>
+            <div className="bg-white/90 p-2 rounded border border-stone-200">
+              <span className="text-stone-500 block text-[10px]">Rotation</span>
+              <span className="text-stone-800">{selectedNode.transform.rotation}</span>
             </div>
-            <div className="bg-slate-900/90 p-2 rounded border border-slate-800">
-              <span className="text-slate-500 block text-[10px]">Scale</span>
-              <span className="text-slate-200">{selectedNode.transform.scale}</span>
+            <div className="bg-white/90 p-2 rounded border border-stone-200">
+              <span className="text-stone-500 block text-[10px]">Scale</span>
+              <span className="text-stone-800">{selectedNode.transform.scale}</span>
             </div>
           </div>
         </div>
@@ -458,32 +458,32 @@ export const HierarchyTree: React.FC = () => {
         {/* Attached Components List */}
         <div className="space-y-3 max-h-[380px] overflow-y-auto pr-1">
           {selectedNode.components.map((c, i) => (
-            <div key={i} className="p-4 bg-slate-950/80 rounded-xl border border-slate-800/80 space-y-2.5">
-              <div className="flex items-center justify-between border-b border-slate-800/80 pb-2">
-                <span className="text-xs font-bold text-white flex items-center gap-2">
-                  <span className="w-2 h-2 rounded bg-blue-500 inline-block" />
+            <div key={i} className="p-4 bg-stone-100/80 rounded-xl border border-stone-200/80 space-y-2.5">
+              <div className="flex items-center justify-between border-b border-stone-200/80 pb-2">
+                <span className="text-xs font-bold text-stone-900 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded bg-teal-500 inline-block" />
                   {c.name}
                 </span>
-                <span className="text-[10px] text-slate-500 font-mono">Component</span>
+                <span className="text-[10px] text-stone-500 font-mono">Component</span>
               </div>
 
               {Object.keys(c.properties).length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-xs font-mono">
                   {Object.entries(c.properties).map(([k, v]) => (
-                    <div key={k} className="flex justify-between items-center py-0.5 border-b border-slate-800/40">
-                      <span className="text-slate-400 text-[11px] font-sans">{k}:</span>
-                      <span className="text-amber-300 text-[11px]">{v}</span>
+                    <div key={k} className="flex justify-between items-center py-0.5 border-b border-stone-200/40">
+                      <span className="text-stone-600 text-[11px] font-sans">{k}:</span>
+                      <span className="text-amber-700 text-[11px]">{v}</span>
                     </div>
                   ))}
                 </div>
               ) : (
-                <span className="text-[11px] text-slate-500 italic">Default component properties.</span>
+                <span className="text-[11px] text-stone-500 italic">Default component properties.</span>
               )}
             </div>
           ))}
 
           {selectedNode.components.length === 0 && (
-            <div className="p-4 bg-slate-950/40 rounded-xl border border-slate-800/40 text-xs text-slate-500 italic">
+            <div className="p-4 bg-stone-100/40 rounded-xl border border-stone-200/40 text-xs text-stone-500 italic">
               Empty container GameObject (grouping parent).
             </div>
           )}
